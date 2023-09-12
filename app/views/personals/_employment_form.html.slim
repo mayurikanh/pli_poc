@@ -1,0 +1,17 @@
+.nested-form-wrapper data-new-record="<%= f.object.new_record? %>"
+  .px-2.py-2
+    = f.label :employer, class: "p-4"
+    = f.text_field :employer, class: "employer required"
+
+  .px-2.py-2
+    = f.label :start_date, class: "p-4" 
+    = f.date_field :start_date, class: "start_date required"
+
+  .px-2.py-2
+    = f.label :emplyment_end_date, class: "p-4"
+    = f.date_field :emplyment_end_date, class: "emplyment_end_date required"
+
+  .p-4
+    button.sm:col-start-2.bg-blue-600.px-4.py-2.mb-4.text-white.rounded-sm.hover:bg-blue-700 type="button" data-action="nested-form#remove" Remove employment
+
+    = f.hidden_field :_destroy

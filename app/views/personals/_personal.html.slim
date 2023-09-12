@@ -1,0 +1,23 @@
+.text-gray-700.border-b.border-gray-200.w-full.pb-2
+  p
+    strong.px-2 First name:
+    = personal.first_name
+
+  p
+    strong.px-2 Last name:
+    = personal.last_name
+
+  p
+    strong.px-2 Nickname:
+    = personal.nickname
+  
+  p
+    strong.px-2 Email address:
+    = personal.email_address
+
+  p
+    strong.px-2 Phone number:
+    = personal.phone_number
+
+  p
+    = link_to "Show this Personal Data", personal, class: "text-blue-600" if current_page?(action: 'index')

@@ -1,0 +1,18 @@
+div data-controller="form"
+  = form_with(model: @personal, id: "employment-form", data: {controller: "nested-form", nested_form_wrapper_selector_value: '.nested-form-wrapper' }) do |f|
+
+    template data-nested-form-target="template"
+      = f.fields_for :employments, @personal.employments, child_index: 'NEW_RECORD' do |employment_fields|
+        = render "employments/employment_form", f: employment_fields
+
+    = f.fields_for :employments do |employment_fields|
+      = render "personals/employment_form", f: employment_fields
+
+    div data-nested-form-target="target"
+
+    .p-4
+      button.sm:col-start-2.bg-blue-600.px-4.py-2.mb-4.text-white.rounded-sm.hover:bg-blue-700.add_employment type="button" data-action="nested-form#add form#add_employment" Add employment
+
+    .rounded-b.mt-6.px-4.sm:grid.sm:grid-cols-2.sm:gap-3.sm:grid-flow-row-dense
+      = f.button "Save", class: "w-full sm:col-start-2 bg-gray-300 px-4 py-2 mb-4 rounded-sm require-form-validation"
+      button data-action="click->modal#close" class="mt-3 w-full sm:mt-0 sm:col-start-1 mb-4 bg-gray-100 hover:bg-gray-200 rounded-sm px-4 py-2" Cancel

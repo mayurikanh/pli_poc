@@ -1,0 +1,7 @@
+.max-w-3xl.mx-auto.mt-8
+  .flex.justify-between.items-baseline.mb-6
+    h1.text-3xl.text-gray-900 Personal data
+    = link_to 'Personal Data', new_personal_path, class: "sm:col-start-2 bg-blue-600 px-4 py-2 mb-4 text-white rounded-sm hover:bg-blue-700",id: "element", data: { action: "click->modal#open", turbo_stream: "" }
+  #card-list.flex.flex-col.items-baseline.space-y-6.p-4.shadow-lg.rounded
+    - @personals.each do |personal|
+      = render "personal", personal: personal
