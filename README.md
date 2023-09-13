@@ -21,4 +21,6 @@ Things you may want to cover:
 
 	'rails db:migrate'
 
+	'rails assets:precompile'
+
 	run code using 'rails s'
